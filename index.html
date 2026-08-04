@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotec. - Projetos ETEC</title>
+    <!-- Fontes: Inter para visual moderno e estilo Scratch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Ficheiro CSS Externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <span class="logo-text">Infotec<span class="logo-dot">.</span></span>
+                <span class="logo-badge">Scratch Edition</span>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#destaque" class="nav-link"><i class="fa-solid fa-star"></i> Destaque</a>
+                <a href="#jogos" class="nav-link"><i class="fa-solid fa-gamepad"></i> Todos os Jogos</a>
+                <a href="#contacto" class="nav-link"><i class="fa-solid fa-envelope"></i> Contacto</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Botão de Alternar Tema (Claro/Escuro) -->
+                <button id="theme-toggle" class="theme-btn" aria-label="Alternar Tema">
+                    <i class="fa-solid fa-moon icon-dark"></i>
+                    <i class="fa-solid fa-sun icon-light"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- SECÇÃO DESTAQUE (GUITAR HERO) -->
+        <section id="destaque" class="hero-section container">
+            <div class="scratch-block-decor orange-decor"></div>
+            <div class="hero-grid">
+                <div class="hero-info">
+                    <span class="badge-new">PROJETO EM DESTAQUE</span>
+                    <h1 class="hero-title">Guitar Hero</h1>
+                    <p class="hero-description">
+                        O projeto <strong>Makey Makey</strong> é um jogo musical desenvolvido no Scratch baseado no clássico Guitar Hero. Foi desenvolvido pelos alunos <span class="highlight">Caio Henrique</span> e <span class="highlight">Lívia Cardia</span> do 3º ano de Informática.
+                    </p>
+                    
+                    <div class="control-box">
+                        <h3 class="control-title"><i class="fa-solid fa-sliders"></i> Opções de Controlo</h3>
+                        <div class="control-options">
+                            <div class="control-item">
+                                <span class="control-badge orange">Opção 1</span>
+                                <p>Hardware Makey Makey, Cabo USB, Cabos jacaré e Massinha de modelar.</p>
+                            </div>
+                            <div class="control-item">
+                                <span class="control-badge blue">Opção 2</span>
+                                <p>Teclado (Setas direcionais): Cima (Vermelho), Baixo (Amarelo), Direita (Azul), Esquerda (Verde).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LINK DO JOGO EM DESTAQUE -->
+                    <a href="https://scratch.mit.edu/projects/745861471/fullscreen/" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-play"></i> Jogar Agora
+                    </a>
+                </div>
+                
+                <div class="hero-media">
+                    <div class="media-container">
+                        <div class="scratch-decor-tag">scratch.mit.edu</div>
+                        <!-- LINK DA IMAGEM DO DESTAQUE -->
+                        <img src="https://tavernf.github.io/scratchFetec/Guitar%20hero.png" alt="Guitar Hero Scratch Cover" class="hero-image">
+                        <div class="media-overlay">
+                            <span class="media-icon"><i class="fa-solid fa-music"></i> Sente o Ritmo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECÇÃO GALERIA DE JOGOS -->
+        <section id="jogos" class="games-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="title-area">
+                        <h2 class="section-title">Galeria de Jogos</h2>
+                        <p class="section-subtitle">Explora os 15 jogos incríveis produzidos pelos alunos do 1º Ano de Informática para a Internet</p>
+                    </div>
+                    
+                    <!-- Barra de Pesquisa e Filtros -->
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="search-input" placeholder="Procurar um jogo...">
+                        </div>
+                        <div class="category-selectors">
+                            <button class="cat-btn active" data-category="all">Todos</button>
+                            <button class="cat-btn" data-category="arcade">Arcade</button>
+                            <button class="cat-btn" data-category="quiz">Quiz</button>
+                            <button class="cat-btn" data-category="aventura">Aventura</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grelha de Jogos (Os 15 Quadrados Completos) -->
+                <div class="games-grid" id="games-grid">
+                    
+                    <!-- Jogo 1: Pokemon -->
+                    <div class="game-card" data-category="aventura" data-title="Pokemon Infinite Fusion">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Pokemon.png" alt="Pokemon Infinite Fusion" class="card-img" onerror="this.src='https://placehold.co/400x300/4D97FF/FFFFFF?text=Pokemon'">
+                            <span class="card-badge">Aventura</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Pokemon Infinite Fusion</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1070193438/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 2: Batman -->
+                    <div class="game-card" data-category="arcade" data-title="Batman Joker's Maze">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Batman.png" alt="Batman Joker's Maze" class="card-img" onerror="this.src='https://placehold.co/400x300/FF8C1A/FFFFFF?text=Batman'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Batman Joker's Maze</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1066982033/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 3: Gênio Quiz -->
+                    <div class="game-card" data-category="quiz" data-title="Gênio Quiz">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Genio%20quiz.png" alt="Génio Quiz" class="card-img" onerror="this.src='https://placehold.co/400x300/3373CC/FFFFFF?text=Genio+Quiz'">
+                            <span class="card-badge">Quiz</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Génio Quiz</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1070681588/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 4: Sonic e Mario -->
+                    <div class="game-card" data-category="arcade" data-title="Sonic e Mario">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Fogoagua.png" alt="Sonic e Mario" class="card-img" onerror="this.src='https://placehold.co/400x300/4D97FF/FFFFFF?text=Sonic+e+Mario'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Sonic e Mario</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1070685533/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 5: Spongebob Flight -->
+                    <div class="game-card" data-category="arcade" data-title="Spongebob Flight">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Sponja.png" alt="Spongebob Flight" class="card-img" onerror="this.src='https://placehold.co/400x300/FF8C1A/FFFFFF?text=Spongebob'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Spongebob Flight</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1073877425/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 6: Angry Birds Halloween -->
+                    <div class="game-card" data-category="aventura" data-title="Angry Birds Halloween">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Angry.png" alt="Angry Birds Halloween" class="card-img" onerror="this.src='https://placehold.co/400x300/3373CC/FFFFFF?text=Angry+Birds'">
+                            <span class="card-badge">Aventura</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Angry Birds Halloween</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1064392867/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 7: Super Minecraft Jump -->
+                    <div class="game-card" data-category="aventura" data-title="Super Minecraft Jump">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Mine.png" alt="Super Minecraft Jump" class="card-img" onerror="this.src='https://placehold.co/400x300/4D97FF/FFFFFF?text=Minecraft+Jump'">
+                            <span class="card-badge">Aventura</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Super Minecraft Jump</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1071826286/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 8: Ghetto Heroes -->
+                    <div class="game-card" data-category="arcade" data-title="Ghetto Heroes">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Getto.png" alt="Ghetto Heroes" class="card-img" onerror="this.src='https://placehold.co/400x300/FF8C1A/FFFFFF?text=Ghetto+Heroes'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Ghetto Heroes</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1070293458/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 9: Dark Ness -->
+                    <div class="game-card" data-category="aventura" data-title="Dark Ness">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Dark.png" alt="Dark Ness" class="card-img" onerror="this.src='https://placehold.co/400x300/0F172A/FFFFFF?text=Dark+Ness'">
+                            <span class="card-badge">Aventura</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Dark Ness</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1073390686/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 10: Tetris -->
+                    <div class="game-card" data-category="arcade" data-title="Tetris">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/Tetris.png" alt="Tetris" class="card-img" onerror="this.src='https://placehold.co/400x300/FF8C1A/FFFFFF?text=Tetris'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Tetris</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1071804496/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 11: Minecraft 2D -->
+                    <div class="game-card" data-category="aventura" data-title="Minecraft 2D">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/minecraft.png" alt="Minecraft 2D" class="card-img" onerror="this.src='https://placehold.co/400x300/2ecc71/FFFFFF?text=Minecraft+2D'">
+                            <span class="card-badge">Aventura</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Minecraft 2D</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1066994031/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 12: Mortal Kombat -->
+                    <div class="game-card" data-category="arcade" data-title="Mortal Kombat">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/mortal.png" alt="Mortal Kombat" class="card-img" onerror="this.src='https://placehold.co/400x300/1A1D24/FFFFFF?text=Mortal+Kombat'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Mortal Kombat</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1070549007/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 13: Water Sort -->
+                    <div class="game-card" data-category="quiz" data-title="Water Sort">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/water.png" alt="Water Sort" class="card-img" onerror="this.src='https://placehold.co/400x300/3498db/FFFFFF?text=Water+Sort'">
+                            <span class="card-badge">Quiz</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Water Sort</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1067484457/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 14: Zumbis Famintos -->
+                    <div class="game-card" data-category="aventura" data-title="Zumbis Famintos">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/sumbis.png" alt="Zumbis Famintos" class="card-img" onerror="this.src='https://placehold.co/400x300/27ae60/FFFFFF?text=Zumbis'">
+                            <span class="card-badge">Aventura</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Zumbis Famintos</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1067544239/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogo 15: Sonic 2 -->
+                    <div class="game-card" data-category="arcade" data-title="Sonic 2">
+                        <div class="card-image-wrap">
+                            <img src="https://tavernf.github.io/scratchFetec/sonico.png" alt="Sonic 2" class="card-img" onerror="this.src='https://placehold.co/400x300/2980b9/FFFFFF?text=Sonic+2'">
+                            <span class="card-badge">Arcade</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Sonic 2</h3>
+                            <p class="card-dev">Criado por: Alunos 1º Ano</p>
+                            <a href="https://scratch.mit.edu/projects/1067830709/fullscreen/" target="_blank" class="btn btn-secondary btn-full">
+                                Jogar <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="footer">
+        <div class="container footer-container">
+            <p class="footer-tagline">Projetos desenvolvidos pelas turmas de 1º, 2º e 3º anos do curso técnico de Informática para a Internet.</p>
+            
+            <a href="https://etecdpm.cps.sp.gov.br" target="_blank" class="footer-link">
+                etecdpm.cps.sp.gov.br <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <div class="footer-logos">
+                <div class="logo-wrapper">
+                    <span class="inst-logo-text red-txt">cps</span>
+                    <span class="inst-sub">Centro Paula Souza</span>
+                </div>
+                <div class="divider"></div>
+                <div class="logo-wrapper">
+                    <span class="inst-logo-text black-txt">SÃO PAULO</span>
+                    <span class="inst-sub">GOVERNO DO ESTADO</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ficheiro JavaScript Externo -->
+    <script src="script.js"></script>
+</body>
+</html>
