@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoVolt | FETEC 2026 — Energia Renovável & Tecnologia Sustentável</title>
+    <title>EcoVolt | FETEC 2026 — 100% Energia Renovável</title>
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS com suporte a Modo Escuro -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +14,7 @@
 
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -40,8 +41,7 @@
                         green: '0 15px 40px rgba(16,185,129,.25)'
                     },
                     animation: {
-                        float: 'float 5s ease-in-out infinite',
-                        pulseSlow: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                        float: 'float 5s ease-in-out infinite'
                     },
                     keyframes: {
                         float: {
@@ -62,24 +62,21 @@
         }
 
         body {
-            background: 
-                radial-gradient(circle at 10% 10%, rgba(181, 18, 27, 0.05), transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.05), transparent 40%),
-                #f8fafc;
-            color: #0f172a;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
+        /* Classes Glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.9);
         }
 
-        .glass-dark {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -123,59 +120,75 @@
         ::-webkit-scrollbar-track {
             background: #f1f5f9;
         }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
         ::-webkit-scrollbar-thumb {
             background: var(--red);
             border-radius: 10px;
         }
     </style>
 </head>
-<body class="selection:bg-etec-red selection:text-white">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-etec-red selection:text-white">
 
 <!-- =========================================================
      HEADER E NAVEGAÇÃO
 ========================================================= -->
-<header id="mainHeader" class="fixed top-0 left-0 w-full z-50 glass border-b border-slate-200/50">
+<header id="mainHeader" class="fixed top-0 left-0 w-full z-50 glass border-b border-slate-200/50 dark:border-slate-800/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        <!-- Logo Criada pela Equipe -->
+        <!-- Logo do Projeto -->
         <a href="#inicio" class="flex items-center gap-3 group">
             <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-etec-red to-etec-dark flex items-center justify-center text-white shadow-lg shadow-etec-red/30 group-hover:scale-105 transition-transform">
                 <i class="fa-solid fa-bolt text-2xl animate-pulse"></i>
             </div>
             <div>
-                <div class="text-2xl font-black tracking-tight text-slate-900">
+                <div class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                     Eco<span class="text-etec-red">Volt</span>
                 </div>
                 <div class="text-[10px] font-extrabold tracking-[0.2em] text-energy-green uppercase">
-                    FETEC 2026 • ENERGIA RENOVÁVEL
+                    FETEC 2026 • APENAS ENERGIA RENOVÁVEL
                 </div>
             </div>
         </a>
 
-        <!-- Menu de Navegação -->
+        <!-- Menu Principal -->
         <nav class="hidden md:flex items-center gap-1">
-            <a href="#inicio" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-etec-red hover:bg-red-50 transition">Página Inicial</a>
-            <a href="#sobre" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-etec-red hover:bg-red-50 transition">Sobre</a>
-            <a href="#tecnologias" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-etec-red hover:bg-red-50 transition">Tecnologias</a>
-            <a href="#curiosidades" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-etec-red hover:bg-red-50 transition">Curiosidades</a>
-            <a href="#dicas" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-etec-red hover:bg-red-50 transition">Dicas</a>
+            <a href="#inicio" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-etec-red dark:hover:text-etec-red hover:bg-red-50 dark:hover:bg-slate-800 transition">Início</a>
+            <a href="#sobre" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-etec-red dark:hover:text-etec-red hover:bg-red-50 dark:hover:bg-slate-800 transition">Sobre</a>
+            <a href="#tecnologias" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-etec-red dark:hover:text-etec-red hover:bg-red-50 dark:hover:bg-slate-800 transition">Tecnologias</a>
+            <a href="#curiosidades" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-etec-red dark:hover:text-etec-red hover:bg-red-50 dark:hover:bg-slate-800 transition">Curiosidades</a>
+            <a href="#dicas" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-etec-red dark:hover:text-etec-red hover:bg-red-50 dark:hover:bg-slate-800 transition">Dicas</a>
+            
+            <!-- Botão de Modo Escuro / Claro no Topo -->
+            <button id="themeToggleBtn" onclick="toggleTheme()" class="ml-2 w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-amber-400 flex items-center justify-center font-bold text-lg hover:scale-105 transition-transform" title="Alternar Modo Claro / Escuro">
+                <i id="themeIcon" class="fa-solid fa-moon"></i>
+            </button>
+
             <a href="#jogos" class="ml-2 px-5 py-2.5 rounded-xl btn-red text-xs font-extrabold flex items-center gap-2 shadow-red">
                 <i class="fa-solid fa-gamepad"></i> Iniciar Jogo
             </a>
         </nav>
 
-        <button id="menuBtn" class="md:hidden w-11 h-11 rounded-xl glass flex items-center justify-center text-etec-red text-xl">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+        <div class="flex items-center gap-2 md:hidden">
+            <!-- Botão Tema Mobile -->
+            <button onclick="toggleTheme()" class="w-11 h-11 rounded-xl glass flex items-center justify-center text-slate-800 dark:text-amber-400 text-lg">
+                <i id="themeIconMobile" class="fa-solid fa-moon"></i>
+            </button>
+
+            <button id="menuBtn" class="w-11 h-11 rounded-xl glass flex items-center justify-center text-etec-red text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden glass border-t border-slate-200 p-4 space-y-2">
-        <a href="#inicio" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50">Página Inicial</a>
-        <a href="#sobre" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50">Sobre</a>
-        <a href="#tecnologias" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50">Tecnologias Sustentáveis</a>
-        <a href="#curiosidades" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50">Curiosidades</a>
-        <a href="#dicas" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50">Dicas Sustentáveis</a>
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden glass border-t border-slate-200 dark:border-slate-800 p-4 space-y-2">
+        <a href="#inicio" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50 dark:hover:bg-slate-800">Início</a>
+        <a href="#sobre" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50 dark:hover:bg-slate-800">Sobre a Energia Renovável</a>
+        <a href="#tecnologias" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50 dark:hover:bg-slate-800">Tecnologias Renováveis</a>
+        <a href="#curiosidades" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50 dark:hover:bg-slate-800">Curiosidades</a>
+        <a href="#dicas" class="mobile-link block p-3 rounded-xl font-bold hover:bg-red-50 dark:hover:bg-slate-800">Dicas Energéticas</a>
         <a href="#jogos" class="mobile-link block p-3 rounded-xl bg-etec-red text-white font-extrabold text-center">Iniciar Jogo</a>
     </div>
 </header>
@@ -190,58 +203,58 @@
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             
             <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-xs font-extrabold text-etec-red border border-red-200">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-xs font-extrabold text-etec-red border border-red-200 dark:border-red-900/50">
                     <span class="flex h-2 w-2 rounded-full bg-etec-red animate-ping"></span>
-                    FETEC 2026 — NOME DO PROJETO: ECOVOLT
+                    PROJETO FETEC 2026 — ECOVOLT: ENERGIA RENOVÁVEL
                 </div>
 
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.08]">
-                    A Energia que Impulsiona o <br>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.08]">
+                    A Energia Limpa que Move o <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-etec-red via-energy-yellow to-energy-green">
-                        Amanhã Sustentável
+                        Futuro Renovável
                     </span>
                 </h1>
 
                 <!-- Objetivo do Projeto -->
-                <div class="bg-white/80 p-6 rounded-2xl border-l-4 border-etec-red shadow-sm space-y-2">
-                    <h3 class="font-black text-slate-900 flex items-center gap-2">
+                <div class="bg-white/80 dark:bg-slate-900/80 p-6 rounded-2xl border-l-4 border-etec-red shadow-sm space-y-2">
+                    <h3 class="font-black text-slate-900 dark:text-white flex items-center gap-2">
                         <i class="fa-solid fa-bullseye text-etec-red"></i> Objetivo do Projeto:
                     </h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Conscientizar a comunidade escolar e a sociedade sobre o uso de fontes de <strong>Energia Renovável</strong> e tecnologias limpas, apresentando soluções viáveis para a redução das emissões de carbono e promovendo hábitos sustentáveis interativos.
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Apresentar exclusivamente o potencial das fontes de <strong>Energia Renovável</strong> (Solar, Eólica, Hídrica, Biomassa, Geotérmica e Maremotriz) para substituir integralmente os combustíveis fósseis e garantir uma matriz elétrica limpa e sustentável.
                     </p>
                 </div>
 
-                <!-- Botões principais de ação -->
+                <!-- Botões Principais -->
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a href="#jogos" class="btn-red px-8 py-4 rounded-2xl font-black text-base shadow-red flex items-center gap-3">
-                        <i class="fa-solid fa-gamepad text-xl"></i> Iniciar Jogo Educativo
+                        <i class="fa-solid fa-gamepad text-xl"></i> Iniciar Jogo Renovável
                     </a>
-                    <a href="#sobre" class="glass px-8 py-4 rounded-2xl font-bold text-slate-800 hover:border-etec-red transition flex items-center gap-3">
-                        <i class="fa-solid fa-circle-info text-energy-green text-xl"></i> Saiba Mais
+                    <a href="#tecnologias" class="glass px-8 py-4 rounded-2xl font-bold text-slate-800 dark:text-slate-200 hover:border-etec-red transition flex items-center gap-3">
+                        <i class="fa-solid fa-bolt text-energy-yellow text-xl"></i> Ver Tecnologias
                     </a>
                 </div>
             </div>
 
-            <!-- Visual Banner Graphic -->
+            <!-- Banner Gráfico Ilustrativo -->
             <div class="lg:col-span-5">
-                <div class="glass relative rounded-[3rem] p-8 shadow-glass border border-white/80 overflow-hidden text-center">
-                    <div class="w-36 h-36 mx-auto rounded-3xl bg-gradient-to-tr from-amber-400 to-yellow-200 flex items-center justify-center shadow-xl animate-float">
-                        <i class="fa-solid fa-solar-panel text-6xl text-amber-700"></i>
+                <div class="glass relative rounded-[3rem] p-8 shadow-glass border border-white/80 dark:border-slate-800 overflow-hidden text-center">
+                    <div class="w-36 h-36 mx-auto rounded-3xl bg-gradient-to-tr from-amber-400 to-emerald-400 flex items-center justify-center shadow-xl animate-float text-white">
+                        <i class="fa-solid fa-solar-panel text-6xl"></i>
                     </div>
 
                     <div class="mt-6 space-y-2">
-                        <h3 class="text-2xl font-black text-slate-900">Energia 100% Limpa</h3>
-                        <p class="text-xs font-bold text-energy-green uppercase tracking-wider">Sol • Vento • Água • Biomassa</p>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white">Matriz 100% Renovável</h3>
+                        <p class="text-xs font-bold text-energy-green uppercase tracking-wider">Sol • Vento • Água • Biomassa • Terra</p>
                     </div>
 
-                    <div class="mt-6 bg-slate-900 rounded-2xl p-4 text-left font-mono text-xs text-emerald-400 space-y-2">
+                    <div class="mt-6 bg-slate-900 rounded-2xl p-4 text-left font-mono text-xs text-emerald-400 space-y-2 border border-slate-800">
                         <div class="flex justify-between border-b border-slate-800 pb-2">
-                            <span>MATRIZ ENERGÉTICA: <strong class="text-amber-400">RENOVÁVEL</strong></span>
+                            <span>FONTE DE ENERGIA: <strong class="text-amber-400">INSUFLÁVEL / LIMPA</strong></span>
                         </div>
-                        <div class="text-slate-300">Status da Transição Global: Em Expansão</div>
+                        <div class="text-slate-300">Emissão de CO₂ na operação: <strong class="text-emerald-400">0.0%</strong></div>
                         <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                            <div class="bg-emerald-400 h-full w-[85%] animate-pulse"></div>
+                            <div class="bg-emerald-400 h-full w-[100%] animate-pulse"></div>
                         </div>
                     </div>
                 </div>
@@ -252,64 +265,65 @@
 </section>
 
 <!-- =========================================================
-     SOBRE (PROBLEMA, DADOS, IMPACTOS E TECNOLOGIA)
+     SOBRE (PROBLEMA DOS FÓSSEIS, DADOS E TECNOLOGIA RENOVÁVEL)
 ========================================================= -->
-<section id="sobre" class="py-24 bg-white relative">
+<section id="sobre" class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-etec-red font-black text-xs tracking-widest uppercase bg-red-50 px-4 py-1.5 rounded-full border border-red-100">
-                Diagnóstico Ambiental
+            <span class="text-etec-red font-black text-xs tracking-widest uppercase bg-red-50 dark:bg-red-950/50 px-4 py-1.5 rounded-full border border-red-100 dark:border-red-900">
+                O Problema Energético
             </span>
-            <h2 class="text-4xl sm:text-5xl font-black text-slate-900">Sobre o Desafio Energético</h2>
-            <p class="text-slate-600 text-lg">Entenda o problema, os impactos no planeta e como a tecnologia é nossa maior aliada.</p>
+            <h2 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">Transição para Energia Limpa</h2>
+            <p class="text-slate-600 dark:text-slate-400 text-lg">Por que precisamos substituir urgentemente as usinas térmicas a carvão e petróleo por fontes renováveis.</p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             
-            <!-- Descrição do Problema e Impactos -->
             <div class="space-y-6">
-                <div class="glass p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <!-- Problema Ambiental -->
+                <div class="glass p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-red-100 text-etec-red flex items-center justify-center text-2xl font-bold">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <i class="fa-solid fa-smog"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-slate-900">O Problema Ambiental Escolhido</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">
-                        A dependência contínua de <strong>combustíveis fósseis</strong> (petróleo, carvão e gás natural) na geração de eletricidade global é a principal causa da emissão em massa de gases do efeito estufa (GEE). Isso acelera o aquecimento global, degrada ecossistemas e provoca eventos climáticos extremos.
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-white">O Problema Ambiental Escolhido</h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                        A geração de energia através da queima de <strong>combustíveis fósseis</strong> (carvão mineral, petróleo e gás natural) é a maior geradora de poluição atmosférica do planeta, liberando bilhões de toneladas de CO₂ que provocam o efeito estufa e a crise climática.
                     </p>
                 </div>
 
-                <div class="glass p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <!-- Solução Renovável -->
+                <div class="glass p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-emerald-100 text-energy-green flex items-center justify-center text-2xl font-bold">
-                        <i class="fa-solid fa-microchip"></i>
+                        <i class="fa-solid fa-plug-circle-check"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-slate-900">Como a Tecnologia Pode Ajudar?</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">
-                        Com o avanço da <strong>tecnologia sustentável</strong>, painéis solares mais eficientes, turbinas eólicas inteligentes, baterias de armazenamento e redes inteligentes (Smart Grids) permitem substituir usinas poluidoras por fontes renováveis e inesgotáveis sem comprometer a distribuição de energia.
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-white">Como a Tecnologia Renovável Ajuda?</h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+                        Os avanços em <strong>painéis fotovoltaicos, turbinas eólicas e acumuladores de energia</strong> permitem captar os recursos naturais inesgotáveis (Sol, vento e água) para gerar energia elétrica com emissão ZERO de gases poluentes durante o uso.
                     </p>
                 </div>
             </div>
 
-            <!-- Estatísticas e Impactos -->
-            <div class="bg-slate-900 text-white p-8 sm:p-10 rounded-3xl space-y-8 shadow-xl">
+            <!-- Dados e Estatísticas de Energia Renovável -->
+            <div class="bg-slate-950 text-white p-8 sm:p-10 rounded-3xl space-y-8 shadow-xl border border-slate-800">
                 <h3 class="text-2xl font-black flex items-center gap-3 text-amber-400">
-                    <i class="fa-solid fa-chart-line"></i> Dados e Estatísticas Globais
+                    <i class="fa-solid fa-chart-pie"></i> Dados Globais de Energia Renovável
                 </h3>
 
                 <div class="space-y-6">
                     <div class="border-b border-slate-800 pb-4">
                         <div class="text-4xl font-black text-etec-red">73%</div>
-                        <p class="text-sm text-slate-300 mt-1">Das emissões globais de gases de efeito estufa vêm diretamente do setor de energia e transportes baseados em fósseis.</p>
+                        <p class="text-sm text-slate-300 mt-1">Das emissões mundiais de gases poluentes vêm do setor elétrico e térmico alimentado por usinas fósseis.</p>
                     </div>
 
                     <div class="border-b border-slate-800 pb-4">
-                        <div class="text-4xl font-black text-energy-green">80%+</div>
-                        <p class="text-sm text-slate-300 mt-1">Da matriz elétrica brasileira já é renovável (liderada por hidrelétricas, eólica e solar), servindo de modelo mundial.</p>
+                        <div class="text-4xl font-black text-energy-green">83%+</div>
+                        <p class="text-sm text-slate-300 mt-1">Da energia elétrica gerada no Brasil vem de fontes renováveis (Hidrelétrica, Eólica, Biomassa e Solar).</p>
                     </div>
 
                     <div>
-                        <div class="text-4xl font-black text-amber-400">2.5x</div>
-                        <p class="text-sm text-slate-300 mt-1">É a velocidade estimada de crescimento da energia solar em comparação com fontes tradicionais na última década.</p>
+                        <div class="text-4xl font-black text-amber-400">85%</div>
+                        <p class="text-sm text-slate-300 mt-1">Foi a redução de custos para a instalação de energia solar nos últimos 10 anos, tornando-a acessível a todos.</p>
                     </div>
                 </div>
             </div>
@@ -320,73 +334,73 @@
 </section>
 
 <!-- =========================================================
-     TECNOLOGIAS SUSTENTÁVEIS (PELO MENOS 5 TECNOLOGIAS)
+     5 TECNOLOGIAS SUSTENTÁVEIS (EXCLUSIVO ENERGIA RENOVÁVEL)
 ========================================================= -->
-<section id="tecnologias" class="py-24 bg-slate-50">
+<section id="tecnologias" class="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-energy-green font-black text-xs tracking-widest uppercase bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-200">
-                Inovação & Futuro
+            <span class="text-energy-green font-black text-xs tracking-widest uppercase bg-emerald-100 dark:bg-emerald-950/60 px-4 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+                Tecnologia Limpa
             </span>
-            <h2 class="text-4xl sm:text-5xl font-black text-slate-900">Tecnologias Sustentáveis</h2>
-            <p class="text-slate-600">Explores as cinco principais inovações tecnológicas no setor de energias limpas.</p>
+            <h2 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">5 Tecnologias de Energia Renovável</h2>
+            <p class="text-slate-600 dark:text-slate-400">As principais inovações tecnológicas no setor de geração de energia inesgotável.</p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- 1. Energia Solar -->
-            <div class="glass rounded-3xl p-8 border border-slate-200 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-3xl mb-6">
+            <div class="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:border-amber-400 transition-all shadow-sm hover:shadow-xl">
+                <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 flex items-center justify-center text-3xl mb-6">
                     <i class="fa-solid fa-sun"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-900 mb-2">1. Energia Solar Fotovoltaica</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Utiliza células de silício para converter a radiação solar diretamente em eletricidade limpa. É inesgotável, silenciosa e ideal para residências e usinas solares.
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">1. Painéis Solares Fotovoltaicos</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Transformam a luz do Sol diretamente em energia elétrica através do efeito fotovoltaico nas células de silício. Fonte silenciosa, limpa e abundante.
                 </p>
             </div>
 
             <!-- 2. Energia Eólica -->
-            <div class="glass rounded-3xl p-8 border border-slate-200 hover:border-emerald-400 transition-all shadow-sm hover:shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mb-6">
+            <div class="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all shadow-sm hover:shadow-xl">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center text-3xl mb-6">
                     <i class="fa-solid fa-wind"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-900 mb-2">2. Energia Eólica de Alta Eficiência</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Aerogeradores modernos aproveitam a força dos ventos em terra (onshore) e no mar (offshore), gerando grandes volumes de energia sem emitir poluentes.
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">2. Turbinas Eólicas (Onshore & Offshore)</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Aproveitam a força cinética dos ventos para movimentar pás de alta performance e gerar eletricidade em grande escala, em terra ou no mar.
                 </p>
             </div>
 
-            <!-- 3. IoT Ambiental -->
-            <div class="glass rounded-3xl p-8 border border-slate-200 hover:border-cyan-400 transition-all shadow-sm hover:shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-3xl mb-6">
-                    <i class="fa-solid fa-network-wired"></i>
+            <!-- 3. Hidrelétrica e Micro-hidráulica -->
+            <div class="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:border-cyan-400 transition-all shadow-sm hover:shadow-xl">
+                <div class="w-14 h-14 rounded-2xl bg-cyan-100 dark:bg-cyan-950/60 text-cyan-600 flex items-center justify-center text-3xl mb-6">
+                    <i class="fa-solid fa-water"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-900 mb-2">3. IoT Ambiental para Gestão Energética</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Sensores conectados à Internet das Coisas (IoT) monitoram o consumo em tempo real, detectam desperdícios e otimizam a distribuição de eletricidade nas cidades.
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">3. Usinas Hidrelétricas & Turbinas de Rio</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Utilizam o fluxo e a força gravitacional das águas para acionar geradores elétricos, sendo uma das matrizes mais estáveis e confiáveis.
                 </p>
             </div>
 
-            <!-- 4. Inteligência Artificial para Meio Ambiente -->
-            <div class="glass rounded-3xl p-8 border border-slate-200 hover:border-purple-400 transition-all shadow-sm hover:shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-3xl mb-6">
-                    <i class="fa-solid fa-brain"></i>
+            <!-- 4. Biomassa e Biogás -->
+            <div class="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:border-green-400 transition-all shadow-sm hover:shadow-xl">
+                <div class="w-14 h-14 rounded-2xl bg-green-100 dark:bg-green-950/60 text-green-700 flex items-center justify-center text-3xl mb-6">
+                    <i class="fa-solid fa-leaf"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-900 mb-2">4. IA para Previsão e Grids Elétricos</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Algoritmos de Inteligência Artificial preveem condições climáticas (sol e vento) para equilibrar a oferta e a demanda de energia limpa na rede de forma automática.
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">4. Geradores de Biomassa e Biogás</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Convertem resíduos agrícolas (como o bagaço de cana) e gases biodegradáveis em eletricidade limpa e biocombustíveis com carbono neutro.
                 </p>
             </div>
 
-            <!-- 5. Smart Cities / Carros Elétricos -->
-            <div class="glass rounded-3xl p-8 border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl md:col-span-2 lg:col-span-1">
-                <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-3xl mb-6">
-                    <i class="fa-solid fa-car-side"></i>
+            <!-- 5. Armazenamento e Inversores -->
+            <div class="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800 hover:border-purple-400 transition-all shadow-sm hover:shadow-xl md:col-span-2 lg:col-span-1">
+                <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-950/60 text-purple-600 flex items-center justify-center text-3xl mb-6">
+                    <i class="fa-solid fa-car-battery"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-900 mb-2">5. Smart Cities & Mobilidade Elétrica</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Cidades inteligentes integram veículos elétricos alimentados por fontes limpas e edifícios autossustentáveis, reduzindo a poluição urbana a zero.
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2">5. Baterias de Armazenamento Renovável</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Sistemas de baterias avançadas estocam a energia gerada em picos de sol e vento para garantir o suprimento ininterrupto mesmo à noite ou sem vento.
                 </p>
             </div>
 
@@ -396,177 +410,177 @@
 </section>
 
 <!-- =========================================================
-     CURIOSIDADES (EXATAMENTE 10 CARDS INTERATIVOS COM IMAGENS/ÍCONES)
+     10 CURIOSIDADES (100% ENERGIA RENOVÁVEL)
 ========================================================= -->
-<section id="curiosidades" class="py-24 bg-white">
+<section id="curiosidades" class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span class="text-etec-red font-black text-xs tracking-widest uppercase bg-red-50 px-4 py-1.5 rounded-full border border-red-100">
-                Você Sabia?
+            <span class="text-etec-red font-black text-xs tracking-widest uppercase bg-red-50 dark:bg-red-950/50 px-4 py-1.5 rounded-full border border-red-100 dark:border-red-900">
+                Fatos Incríveis
             </span>
-            <h2 class="text-4xl sm:text-5xl font-black text-slate-900">10 Curiosidades Renováveis</h2>
-            <p class="text-slate-600">Clique ou passe o mouse nos cards interativos para descobrir fatos impressionantes.</p>
+            <h2 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white">10 Curiosidades sobre Energia Renovável</h2>
+            <p class="text-slate-600 dark:text-slate-400">Clique nos cards interativos abaixo para girar e aprender fatos marcantes.</p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
             
             <!-- Curiosidade 1 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-sun"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">1. Energia do Sol</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">1. Potencial Solar</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-amber-500 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">O Sol envia para a Terra em 1 hora mais energia do que toda a humanidade consome em 1 ano inteiro!</p>
+                        <p class="text-xs font-bold">O Sol ilumina a Terra em 1 hora com mais energia do que toda a humanidade consome em 1 ano!</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 2 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-wind"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">2. Turbinas Gigantes</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">2. Força das Turbinas</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-emerald-600 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">Uma única volta da pá de uma turbina eólica gigante pode abastecer uma casa por mais de 2 dias!</p>
+                        <p class="text-xs font-bold">Uma rotação completa da pá de uma grande turbina eólica no mar gera energia para alimentar uma casa por 2 dias!</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 3 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-water"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">3. Força das Marés</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">3. Previsibilidade das Marés</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-cyan-600 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">A energia das marés é uma das mais previsíveis do mundo, pois depende diretamente da atração da Lua.</p>
+                        <p class="text-xs font-bold">A energia maremotriz é 100% previsível porque depende do movimento constante do mar e da atração da Lua.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 4 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-leaf"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">4. Biomassa Neutra</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">4. Ciclo da Biomassa</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-green-700 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">A biomassa é neutra em carbono porque o CO2 liberado na queima foi absorvido pelas plantas enquanto cresciam.</p>
+                        <p class="text-xs font-bold">A energia de biomassa não aumenta o efeito estufa porque o CO₂ liberado é reabsorvido no crescimento das novas plantas.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 5 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-bolt"></i>
+                            <i class="fa-solid fa-satellite"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">5. Painéis Espaciais</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">5. Painéis no Espaço</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-purple-600 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">A Estação Espacial Internacional (ISS) é 100% movida a energia solar captada no espaço!</p>
+                        <p class="text-xs font-bold">A Estação Espacial Internacional obtém 100% da sua energia elétrica por grandes asas de painéis solares.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 6 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-volcano"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">6. Calor da Terra</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">6. Calor da Geotermia</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-rose-600 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">Na Islândia, quase 100% das casas são aquecidas utilizando energia geotérmica do interior do planeta.</p>
+                        <p class="text-xs font-bold">Países vulcânicos como a Islândia produzem quase 100% da eletricidade e aquecimento pelo vapor do subsolo.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 7 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-coins"></i>
+                            <i class="fa-solid fa-chart-line"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">7. Custo em Queda</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">7. Queda nos Custos</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-amber-600 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">O custo dos painéis solares caiu mais de 85% nos últimos 10 anos, tornando-se a energia mais barata da história.</p>
+                        <p class="text-xs font-bold">A tecnologia solar barateou 85% e a eólica 60% na última década, tornando-as as energias mais baratas da história.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 8 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-droplet"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">8. Economia de Água</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">8. Economia de Água</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-blue-600 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">A energia solar e eólica utilizam praticamente ZERO água na geração, diferente de usinas termoelétricas.</p>
+                        <p class="text-xs font-bold">Diferente das térmicas a carvão, usinas solares fotovoltaicas e eólicas não gastam recursos hídricos para operar.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 9 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-etec-soft text-etec-red flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-briefcase"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">9. Empregos Verdes</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">9. Empregos Verdes</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-etec-red text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">O setor de energias renováveis gera mais de 13 milhões de empregos diretos no mundo todo.</p>
+                        <p class="text-xs font-bold">O setor de energias renováveis já emprega diretamente mais de 13.7 milhões de pessoas no mundo todo.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Curiosidade 10 -->
             <div class="flip-card h-64 perspective cursor-pointer">
-                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flip-card-front absolute inset-0 bg-slate-50 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                    <div class="flip-card-front absolute inset-0 bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 flex flex-col justify-between text-center items-center">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl">
                             <i class="fa-solid fa-recycle"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm">10. Reciclagem</h4>
+                        <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">10. Reciclabilidade</h4>
                         <span class="text-[11px] text-slate-400">Clique para girar ↺</span>
                     </div>
                     <div class="flip-card-back absolute inset-0 bg-emerald-700 text-white rounded-2xl p-5 flex flex-col justify-center items-center text-center">
-                        <p class="text-xs font-bold">Mais de 90% dos materiais de um painel solar (vidro, alumínio e silício) podem ser 100% reciclados!</p>
+                        <p class="text-xs font-bold">Painéis solares podem ter até 95% dos seus materiais (alumínio, vidro e silício) reaproveitados ao fim da vida útil.</p>
                     </div>
                 </div>
             </div>
@@ -577,38 +591,38 @@
 </section>
 
 <!-- =========================================================
-     DICAS SUSTENTÁVEIS (EXATAMENTE 15 DICAS COM INTERAÇÃO)
+     15 DICAS DE EFICIÊNCIA ENERGÉTICA RENOVÁVEL
 ========================================================= -->
-<section id="dicas" class="py-24 bg-slate-50">
+<section id="dicas" class="py-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-                <span class="text-energy-green font-black text-xs tracking-widest uppercase bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-200">
-                    Ação Prática
+                <span class="text-energy-green font-black text-xs tracking-widest uppercase bg-emerald-100 dark:bg-emerald-950/60 px-4 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+                    Uso Consciente de Energia
                 </span>
-                <h2 class="text-4xl sm:text-5xl font-black text-slate-900 mt-2">15 Dicas Sustentáveis</h2>
-                <p class="text-slate-600">Marque as práticas eficientes que você já adota no seu dia a dia!</p>
+                <h2 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white mt-2">15 Dicas de Economia Energética</h2>
+                <p class="text-slate-600 dark:text-slate-400">Marque as ações de uso consciente de eletricidade que você pratica no dia a dia!</p>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm min-w-[220px]">
+            <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm min-w-[220px]">
                 <div class="text-xs font-bold text-slate-400 uppercase">Seu Progresso</div>
                 <div id="dicasCount" class="text-xl font-black text-etec-red">0 de 15 Concluídas</div>
-                <div class="w-full bg-slate-200 h-2.5 rounded-full mt-2 overflow-hidden">
+                <div class="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full mt-2 overflow-hidden">
                     <div id="dicasBar" class="bg-energy-green h-full w-0 transition-all duration-300"></div>
                 </div>
             </div>
         </div>
 
         <div id="dicasGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- 15 Dicas Injetadas Dinamicamente via JS com Ícone e Botão de Marcar -->
+            <!-- 15 Dicas Geradas Dinamicamente via JS -->
         </div>
 
     </div>
 </section>
 
 <!-- =========================================================
-     JOGOS EDUCATIVOS (OPÇÕES DE JOGO OBRIGATÓRIAS)
+     JOGOS EDUCATIVOS 100% SOBRE ENERGIA RENOVÁVEL
 ========================================================= -->
 <section id="jogos" class="py-24 bg-slate-950 text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -617,21 +631,21 @@
             <span class="inline-flex items-center gap-2 text-etec-red font-black text-xs tracking-widest uppercase bg-red-950/80 px-4 py-1.5 rounded-full border border-red-800">
                 <i class="fa-solid fa-gamepad"></i> FETEC Arcade 2026
             </span>
-            <h2 class="text-4xl sm:text-5xl font-black">Jogos Educativos Renováveis</h2>
-            <p class="text-slate-400">Escolha uma modalidade e teste suas habilidades sustentáveis!</p>
+            <h2 class="text-4xl sm:text-5xl font-black">Jogos de Energia Renovável</h2>
+            <p class="text-slate-400">Escolha uma opção e divirta-se aprendendo sobre fontes limpas de eletricidade!</p>
         </div>
 
         <!-- Botões de Seleção do Jogo -->
         <div class="flex flex-wrap justify-center gap-4 mb-10">
             <button onclick="switchGame('quiz')" id="btnQuiz" class="px-6 py-3 rounded-2xl font-extrabold text-sm transition bg-etec-red text-white shadow-red flex items-center gap-2">
-                <i class="fa-solid fa-list-check"></i> Opção 1: Mega Quiz (10 Perguntas)
+                <i class="fa-solid fa-list-check"></i> Opção 1: Mega Quiz Renovável (10 Perguntas)
             </button>
             <button onclick="switchGame('catcher')" id="btnCatcher" class="px-6 py-3 rounded-2xl font-extrabold text-sm transition bg-slate-800 text-slate-400 hover:text-white flex items-center gap-2">
                 <i class="fa-solid fa-hand-pointer"></i> Opção 2: Caça à Energia Limpa
             </button>
         </div>
 
-        <!-- MÓDULO 1: QUIZ (10 PERGUNTAS, 4 ALTERNATIVAS, PONTUAÇÃO, TELA FINAL E FEEDBACK) -->
+        <!-- MÓDULO 1: QUIZ 100% ENERGIA RENOVÁVEL (10 PERGUNTAS, 4 ALTERNATIVAS, PONTUAÇÃO, TELA FINAL E FEEDBACK) -->
         <div id="quizGame" class="max-w-3xl mx-auto bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl">
             <div id="quizBody">
                 <div class="flex justify-between items-center mb-6 text-sm text-slate-400 border-b border-slate-800 pb-4">
@@ -642,7 +656,7 @@
                 <h3 id="qTitle" class="text-xl sm:text-2xl font-extrabold text-white mb-6">Carregando pergunta...</h3>
 
                 <div id="qOptions" class="space-y-3">
-                    <!-- 4 Alternativas aqui -->
+                    <!-- 4 Alternativas -->
                 </div>
 
                 <div id="qFeedback" class="hidden mt-6 p-4 rounded-xl text-sm font-bold"></div>
@@ -652,7 +666,7 @@
                 <div class="w-20 h-20 mx-auto rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-4xl mb-4">
                     <i class="fa-solid fa-trophy"></i>
                 </div>
-                <h3 class="text-3xl font-black text-white">Quiz Concluído!</h3>
+                <h3 class="text-3xl font-black text-white">Quiz Renovável Concluído!</h3>
                 <p id="quizFinalMsg" class="text-slate-300 text-lg">Sua pontuação final foi de 0 pontos.</p>
                 <button onclick="resetQuiz()" class="btn-red px-8 py-3.5 rounded-xl font-bold mt-4 shadow-red">
                     Tentar Novamente ↺
@@ -660,18 +674,18 @@
             </div>
         </div>
 
-        <!-- MÓDULO 2: CAÇA À ENERGIA LIMPA / CAÇA AO LIXO -->
+        <!-- MÓDULO 2: CAÇA À ENERGIA LIMPA (CAPTURA EXCLUSIVA DE ENERGIA RENOVÁVEL) -->
         <div id="catcherGame" class="hidden max-w-2xl mx-auto text-center space-y-4">
             <div class="bg-slate-900 rounded-3xl p-4 border border-slate-800 relative">
                 <div class="flex justify-between items-center px-4 py-2 font-bold text-sm text-slate-300">
                     <span>Pontos: <strong id="gameScore" class="text-emerald-400">0</strong></span>
-                    <span class="text-xs text-slate-500">Mova o coletor com o Mouse ou Toque</span>
+                    <span class="text-xs text-slate-500">Mova o painel com o Mouse/Toque</span>
                     <span>Vidas: <strong id="gameLives" class="text-red-500">❤️❤️❤️</strong></span>
                 </div>
                 <canvas id="gameCanvas" width="600" height="400" class="w-full bg-slate-950 rounded-2xl border border-slate-800 cursor-none"></canvas>
             </div>
             <p class="text-xs text-slate-400">
-                <strong>Instruções:</strong> Capture os recursos limpos (☀️ Sol, 🍃 Vento). Evite os poluentes (☁️ fumaça de carvão e resíduos)!
+                <strong>Instruções do Jogo:</strong> Capture apenas as fontes limpas (☀️ Sol, 🍃 Vento e 💧 Água). Evite a fumaça poluidora do carvão (☁️)!
             </p>
         </div>
 
@@ -692,7 +706,7 @@
             <span class="text-2xl font-black text-white tracking-tight">Eco<span class="text-etec-red">Volt</span></span>
         </div>
         <p class="text-sm max-w-md mx-auto">
-            Projeto da FETEC 2026 focado exclusivamente em Energias Renováveis e Inovação Sustentável.
+            Projeto da FETEC 2026 focado 100% em Energias Renováveis e Inovação Limpa.
         </p>
         <div class="text-xs text-slate-600 pt-4 border-t border-slate-800">
             © 2026 EcoVolt — FETEC. Todos os direitos reservados.
@@ -704,6 +718,32 @@
      SCRIPTS & LÓGICA DO SITE
 ========================================================= -->
 <script>
+    // Função do Alternador de Modo Escuro / Claro
+    function toggleTheme() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        const icon = document.getElementById('themeIcon');
+        const iconMobile = document.getElementById('themeIconMobile');
+        
+        if (isDark) {
+            icon.className = 'fa-solid fa-sun';
+            if(iconMobile) iconMobile.className = 'fa-solid fa-sun';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.className = 'fa-solid fa-moon';
+            if(iconMobile) iconMobile.className = 'fa-solid fa-moon';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Carregar preferências
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        const icon = document.getElementById('themeIcon');
+        const iconMobile = document.getElementById('themeIconMobile');
+        if (icon) icon.className = 'fa-solid fa-sun';
+        if (iconMobile) iconMobile.className = 'fa-solid fa-sun';
+    }
+
     // Menu Mobile
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -712,28 +752,28 @@
         link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
 
-    // Flip Cards Click Support
+    // Flip Cards suporte ao clique
     document.querySelectorAll('.flip-card').forEach(card => {
         card.addEventListener('click', () => card.classList.toggle('flipped'));
     });
 
-    // 15 Dicas Sustentáveis Dinâmicas
+    // 15 Dicas Exclusivas de Eficiência e Energia Renovável
     const dicasData = [
-        { title: "Trocar lâmpadas por LED", desc: "Consomem até 80% menos energia elétrica.", icon: "fa-lightbulb" },
-        { title: "Aproveitar luz solar", desc: "Abra janelas e cortinas durante o dia.", icon: "fa-sun" },
-        { title: "Selo Procel A", desc: "Escolha eletrodomésticos de alta eficiência.", icon: "fa-charging-station" },
-        { title: "Desligar stand-by", desc: "Tire da tomada aparelhos sem uso continuo.", icon: "fa-power-off" },
-        { title: "Painel Solar em casa", desc: "Gere sua própria energia limpa na residência.", icon: "fa-solar-panel" },
-        { title: "Banhos rápidos", desc: "O chuveiro elétrico é um dos maiores vilões da conta.", icon: "fa-shower" },
-        { title: "Carregar no limite", desc: "Desconecte carregadores quando atingir 100%.", icon: "fa-battery-full" },
-        { title: "Uso consciente do Ar-condicionado", desc: "Mantenha em 23°C para equilíbrio térmico.", icon: "fa-snowflake" },
-        { title: "Manutenção preventiva", desc: "Aparelhos regulados consomem menos energia.", icon: "fa-screwdriver-wrench" },
-        { title: "Máquina de lavar cheia", desc: "Lave o máximo de roupas por ciclo para otimizar.", icon: "fa-shirt" },
-        { title: "Passar roupa de uma vez", desc: "Acumular roupas evita aquecer o ferro várias vezes.", icon: "fa-temperature-high" },
-        { title: "Geladeira longe do fogão", desc: "O calor externo faz o motor trabalhar o dobro.", icon: "fa-box" },
-        { title: "Mobilidade elétrica", desc: "Dê preferência a veículos elétricos ou transporte coletivo.", icon: "fa-bus" },
-        { title: "Secagem natural de roupas", desc: "Evite secadoras elétricas em dias ensolarados.", icon: "fa-wind" },
-        { title: "Disseminar conhecimento", desc: "Ensine amigos e família sobre energias renováveis.", icon: "fa-bullhorn" }
+        { title: "Instalar painéis fotovoltaicos", desc: "Gere sua própria energia solar em casa reduzindo dependência da rede elétrica.", icon: "fa-solar-panel" },
+        { title: "Trocar lâmpadas por LED", desc: "Substitua lâmpadas antigas para reduzir a demanda da matriz energética.", icon: "fa-lightbulb" },
+        { title: "Comprar equipamentos Procel A", desc: "Aparelhos eficientes aproveitam melhor a eletricidade limpa fornecida.", icon: "fa-charging-station" },
+        { title: "Utilizar aquecimento solar hídrico", desc: "Aqueça a água do banho diretamente com o calor do Sol.", icon: "fa-shower" },
+        { title: "Desligar aparelhos em standby", desc: "Evite o consumo vampiro que gasta eletricidade sem uso.", icon: "fa-power-off" },
+        { title: "Aproveitar a iluminação natural", desc: "Abra janelas e cortinas durante o dia para poupar lâmpadas.", icon: "fa-sun" },
+        { title: "Ajustar ar-condicionado para 23°C", desc: "Evita o consumo excessivo do compressor elétrico.", icon: "fa-snowflake" },
+        { title: "Carregar veículos em fontes limpas", desc: "Abasteça carros elétricos com energia vinda de placas solares.", icon: "fa-car-battery" },
+        { title: "Evitar o uso do chuveiro no pico", desc: "Economiza demanda de energia em horários de maior carga.", icon: "fa-clock" },
+        { title: "Manter painéis solares limpos", desc: "A limpeza periódica garante máxima captação de luz solar.", icon: "fa-hand-sparkles" },
+        { title: "Usar secagem natural ao Sol", desc: "Seque roupas no varal aproveitando a radiação e vento naturais.", icon: "fa-wind" },
+        { title: "Acumular roupas para lavar/passar", desc: "Razotimiza o uso do motor e da resistência elétrica de uma só vez.", icon: "fa-shirt" },
+        { title: "Geladeira longe de fontes de calor", desc: "Mantenha longe do fogão para não sobrecarregar o motor.", icon: "fa-box" },
+        { title: "Apoiar a energia eólica local", desc: "Incentive políticas públicas de expansão de parques eólicos.", icon: "fa-fan" },
+        { title: "Multiplicar o conhecimento", desc: "Ensine amigos sobre as vantagens das fontes renováveis.", icon: "fa-bullhorn" }
     ];
 
     let dicasChecked = new Array(dicasData.length).fill(false);
@@ -743,16 +783,16 @@
         grid.innerHTML = '';
         dicasData.forEach((dica, idx) => {
             const card = document.createElement('div');
-            card.className = `p-5 rounded-2xl border transition-all duration-300 flex items-start gap-4 cursor-pointer ${dicasChecked[idx] ? 'bg-emerald-50 border-emerald-300 shadow-sm' : 'bg-white border-slate-200 hover:border-slate-300'}`;
+            card.className = `p-5 rounded-2xl border transition-all duration-300 flex items-start gap-4 cursor-pointer ${dicasChecked[idx] ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 shadow-sm' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300'}`;
             card.onclick = () => toggleDica(idx);
             
             card.innerHTML = `
-                <div class="w-10 h-10 rounded-xl ${dicasChecked[idx] ? 'bg-emerald-500 text-white' : 'bg-slate-100 text-slate-600'} flex items-center justify-center text-lg flex-shrink-0">
+                <div class="w-10 h-10 rounded-xl ${dicasChecked[idx] ? 'bg-emerald-500 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'} flex items-center justify-center text-lg flex-shrink-0">
                     <i class="fa-solid ${dicasChecked[idx] ? 'fa-check' : dica.icon}"></i>
                 </div>
                 <div class="flex-grow">
-                    <h4 class="font-extrabold text-slate-900 text-sm">${idx + 1}. ${dica.title}</h4>
-                    <p class="text-xs text-slate-500 mt-1">${dica.desc}</p>
+                    <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">${idx + 1}. ${dica.title}</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${dica.desc}</p>
                 </div>
             `;
             grid.appendChild(card);
@@ -774,19 +814,19 @@
     renderDicas();
 
     // =========================================================
-    // OPÇÃO 1: QUIZ (10 PERGUNTAS SOBRE ENERGIA RENOVÁVEL)
+    // QUIZ 100% SOBRE ENERGIA RENOVÁVEL (10 PERGUNTAS)
     // =========================================================
     const quizQuestions = [
-        { q: "1. Qual destas fontes é considerada RENOVAÇÃO CONTÍNUA e limpa?", opts: ["Carvão Mineral", "Energia Solar", "Petróleo", "Gás Natural"], ans: 1, exp: "A energia solar vem do Sol e se renova naturalmente a todo momento." },
-        { q: "2. Como se chama a energia gerada pela força dos ventos?", opts: ["Energia Eólica", "Energia Geotérmica", "Biomassa", "Energia Maremotriz"], ans: 0, exp: "A energia eólica utiliza aerogeradores acionados pelo vento." },
-        { q: "3. Qual elemento semicondutor é mais usado em painéis solares?", opts: ["Cobre", "Alumínio", "Silício", "Ferro"], ans: 2, exp: "O silício é o material base das células fotovoltaicas." },
-        { q: "4. O que caracteriza a geração por BIOMASSA?", opts: ["Uso de urânio", "Queima de resíduos orgânicos", "Plásticos reciclados", "Vapor vulcânico"], ans: 1, exp: "Usa bagaço de cana, madeira e resíduos agrícolas para gerar eletricidade." },
-        { q: "5. Qual a principal vantagem das fontes limpas frente aos combustíveis fósseis?", opts: ["Zero emissão operacional de CO2", "São mais caras", "Ocupam mais espaço", "Poluem os rios"], ans: 0, exp: "Elas não liberam gases de efeito estufa durante o funcionamento." },
-        { q: "6. A energia vinda do calor interno da Terra é chamada de:", opts: ["Hidrelétrica", "Solar", "Geotérmica", "Nuclear"], ans: 2, exp: "Geotérmica aproveita o vapor e calor das profundezas da Terra." },
-        { q: "7. O que são as Smart Grids (Redes Inteligentes)?", opts: ["Redes de fibra óptica", "Sistemas inteligentes de distribuição de energia", "Postes de luz antigos", "Baterias de celulares"], ans: 1, exp: "Unem IoT e tecnologia para otimizar o fluxo de energia renovável." },
-        { q: "8. Qual fonte utiliza a movimentação das marés e ondas?", opts: ["Energia Oceânica / Maremotriz", "Energia Eólica", "Solar", "Biomassa"], ans: 0, exp: "A força gravitacional da Lua move as marés gerando energia." },
-        { q: "9. O que significa um equipamento com Selo Procel A?", opts: ["Consome muita energia", "Possui máxima eficiência energética", "É importado", "Funciona a pilha"], ans: 1, exp: "Consome menos eletricidade para realizar a mesma função." },
-        { q: "10. Qual país tem mais de 80% da sua eletricidade vinda de matriz renovável?", opts: ["Brasil", "Estados Unidos", "China", "Austrália"], ans: 0, exp: "O Brasil é referência mundial com hidrelétricas, eólica e solar." }
+        { q: "1. Qual destas fontes de energia é 100% RENOVAÇÃO CONTÍNUA e não esgota?", opts: ["Carvão Mineral", "Energia Solar", "Petróleo bruto", "Gás Natural"], ans: 1, exp: "A energia solar vem da radiação inesgotável do Sol." },
+        { q: "2. Como chamamos a energia gerada a partir da força das massas de ar (vento)?", opts: ["Energia Eólica", "Energia Geotérmica", "Biomassa", "Energia Hidrelétrica"], ans: 0, exp: "A energia eólica usa a força dos ventos para mover aerogeradores." },
+        { q: "3. Qual é o mineral semicondutor mais utilizado nas células solares fotovoltaicas?", opts: ["Cobre", "Alumínio", "Silício", "Ferro"], ans: 2, exp: "O silício é o elemento principal que transforma a luz solar em eletricidade." },
+        { q: "4. A energia gerada a partir de resíduos vegetais orgânicos (como a cana-de-açúcar) é a:", opts: ["Energia Nuclear", "Biomassa", "Geotérmica", "Fóssil"], ans: 1, exp: "A biomassa reaproveita a matéria orgânica vegetal para gerar eletricidade." },
+        { q: "5. Qual a maior vantagem das usinas eólicas e solares durante seu funcionamento?", opts: ["Zero emissão de gases de efeito estufa", "São invisíveis", "Funcionam sem qualquer equipamento", "Não geram energia à tarde"], ans: 0, exp: "Fontes renováveis não emitem dióxido de carbono (CO₂) na operação." },
+        { q: "6. Como se chama a energia obtida a partir do calor interno contido no subsolo da Terra?", opts: ["Hidrelétrica", "Solar", "Geotérmica", "Oceanográfica"], ans: 2, exp: "A energia geotérmica utiliza o vapor e calor natural do subsolo da Terra." },
+        { q: "7. O que a energia maremotriz aproveita para gerar eletricidade?", opts: ["O movimento das marés e correntes marítimas", "O sal da água do mar", "O vento das praias", "A areia das dunas"], ans: 0, exp: "Utiliza a força gravitacional da Lua que movimenta os oceanos." },
+        { q: "8. Qual destas opções representa uma fonte de energia limpa e renovável?", opts: ["Uso de gerador a óleo diesel", "Turbina hidráulica em curso d'água", "Queima de carvão vegetal", "Uso de gás de botijão"], ans: 1, exp: "Turbinas hidráulicas aproveitam a força da água renovável." },
+        { q: "9. Por que a energia solar é considerada neutra e amiga do clima?", opts: ["Porque elimina lixo das ruas", "Porque não libera poluentes atmosféricos ao gerar luz", "Porque gasta gasolina", "Porque apaga o Sol"], ans: 1, exp: "Ela converte luz diretamente em eletricidade sem combustão." },
+        { q: "10. Qual país é referência mundial por gerar mais de 80% da sua eletricidade com renováveis?", opts: ["Brasil", "Estados Unidos", "China", "Inglaterra"], ans: 0, exp: "O Brasil destaca-se mundialmente por sua matriz hídrica, eólica e solar." }
     ];
 
     let currentQ = 0;
@@ -832,7 +872,7 @@
             } else {
                 document.getElementById('quizBody').classList.add('hidden');
                 document.getElementById('quizResult').classList.remove('hidden');
-                document.getElementById('quizFinalMsg').innerText = `Você fez ${quizScore} de 100 pontos no Mega Quiz!`;
+                document.getElementById('quizFinalMsg').innerText = `Você atingiu ${quizScore} de 100 pontos no Quiz de Energia Renovável!`;
             }
         }, 1800);
     }
@@ -847,7 +887,7 @@
 
     loadQuestion();
 
-    // Toggle de Jogos
+    // Toggle do Módulo de Jogos
     function switchGame(mode) {
         if(mode === 'quiz') {
             document.getElementById('quizGame').classList.remove('hidden');
@@ -864,7 +904,7 @@
     }
 
     // =========================================================
-    // OPÇÃO 2: CAÇA À ENERGIA LIMPA / CAÇA AO LIXO
+    // JOGO CAÇA À ENERGIA LIMPA (CAPTURA 100% RENOVÁVEL)
     // =========================================================
     let gameLoopId = null;
     function initCatcherGame() {
@@ -887,7 +927,7 @@
         };
 
         function spawnItem() {
-            const types = ['sun', 'wind', 'smog'];
+            const types = ['sun', 'wind', 'water', 'smog'];
             const type = types[Math.floor(Math.random() * types.length)];
             items.push({
                 x: Math.random() * (canvas.width - 30),
@@ -900,17 +940,17 @@
         let frame = 0;
         function update() {
             frame++;
-            if(frame % 40 === 0) spawnItem();
+            if(frame % 38 === 0) spawnItem();
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Coletor
+            // Coletor Solar / Renovável
             ctx.fillStyle = '#10b981';
             ctx.beginPath();
             ctx.roundRect(player.x, player.y, player.w, player.h, 6);
             ctx.fill();
 
-            // Itens
+            // Itens de Energia Renovável vs Poluição
             for(let i = items.length - 1; i >= 0; i--) {
                 let it = items[i];
                 it.y += it.speed;
@@ -920,11 +960,13 @@
                     ctx.fillText('☀️', it.x, it.y);
                 } else if(it.type === 'wind') {
                     ctx.fillText('🍃', it.x, it.y);
+                } else if(it.type === 'water') {
+                    ctx.fillText('💧', it.x, it.y);
                 } else {
-                    ctx.fillText('☁️', it.x, it.y);
+                    ctx.fillText('☁️', it.x, it.y); // Fumaça do Carvão / Fóssil
                 }
 
-                // Colisão
+                // Colisão com Coletor
                 if(it.y >= player.y && it.x >= player.x - 10 && it.x <= player.x + player.w + 10) {
                     if(it.type === 'smog') {
                         gLives--;
@@ -951,14 +993,13 @@
                 ctx.fillStyle = '#ffffff';
                 ctx.font = 'bold 22px Plus Jakarta Sans';
                 ctx.textAlign = 'center';
-                ctx.fillText('Fim de Jogo! Sua Pontuação: ' + gScore, canvas.width / 2, canvas.height / 2);
+                ctx.fillText('Fim de Jogo! Pontuação Renovável: ' + gScore, canvas.width / 2, canvas.height / 2);
             }
         }
 
         if(gameLoopId) cancelAnimationFrame(gameLoopId);
         update();
     }
-    
 </script>
 
 </body>
